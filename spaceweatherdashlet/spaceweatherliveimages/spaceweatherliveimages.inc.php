@@ -17,7 +17,7 @@ function spaceweatherliveimages_dashlet_init()
         DASHLET_NAME => $name,
         DASHLET_VERSION => "1.0.0",
         DASHLET_AUTHOR => "Nagios Enterprises, LLC",
-        DASHLET_DESCRIPTION => _("Shows various space weather images from SpaceWeatherLive.com and NOAA."),
+        DASHLET_DESCRIPTION => _("Shows various space weather images from SpaceWeatherLive.com and the NOAA."),
         DASHLET_COPYRIGHT => "Dashlet Copyright &copy; 2025 Nagios Enterprises.",
         DASHLET_LICENSE => "MIT",
         DASHLET_HOMEPAGE => "https://www.nagios.com",
@@ -76,8 +76,8 @@ function spaceweatherliveimages_dashlet_func($mode = DASHLET_MODE_PREVIEW, $id =
                 <label for="image">'._('Select Image').'</label>
                 <div>
                     <select name="image" class="form-control" id="image">
-                        <option value="southernaurora">'._('Southern Aurora').'</option>
                         <option value="northernaurora">'._('Northern Aurora').'</option>
+                        <option value="southernaurora">'._('Southern Aurora').'</option>
                         <option value="coronalhole">'._('Coronal Hole').'</option>
                         <option value="coronagraph">'._('Lasco C3 Coronagraph').'</option>
                         <option value="thematicmap">'._('Thematic Map').'</option>
@@ -104,13 +104,13 @@ function spaceweatherliveimages_dashlet_func($mode = DASHLET_MODE_PREVIEW, $id =
         case DASHLET_MODE_OUTBOARD:
         case DASHLET_MODE_INBOARD:
             $output = '
-            <div>
-                <img src="'.$imgurl.'" alt="Space Weather Image">
+            <div style="width: 100%; height: 100%;">
+                <img src="'.$imgurl.'" alt="Space Weather Image" style="width: 100%; height: 100%; object-fit: contain;">
             </div>';
             break;
 
         case DASHLET_MODE_PREVIEW:
-            $output = "<p><img src='" . $imgurl . "' alt='Space Weather Image'></p>";
+            $output = "<p><img src='" . $imgurl . "' alt='Space Weather Image' style='width: 100%; height: 100%; object-fit: contain;'></p>";
             break;
     }
 
